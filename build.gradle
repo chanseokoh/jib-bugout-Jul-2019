@@ -41,8 +41,8 @@ project(':foo') {
   }
 
   jib.to.image = 'gcr.io/chanseok-playground-new/foo:tag0'
-  jib.containerizingMode = 'packaged'
-  // jib.to.image = 'gcr.io/YOUR-GCP-PROJECT/foo:tag0'
+  //jib.to.image = 'gcr.io/YOUR-GCP-PROJECT/foo:tag0'
+  //jib.containerizingMode = 'packaged' // works with 1.3.1-SNAPSHOT only
 }
 
 project(':bar') {
@@ -51,5 +51,5 @@ project(':bar') {
   }
 
   jib.to.image = 'gcr.io/chanseok-playground-new/bar:tag0'
-  // jib.to.image = 'gcr.io/YOUR-GCP-PROJECT/bar:tag0'
+  //jib.to.image = 'gcr.io/YOUR-GCP-PROJECT/bar:tag0'
 }
