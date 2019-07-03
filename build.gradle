@@ -24,7 +24,10 @@ subprojects {
   targetCompatibility = 1.8
 
   jib {
-    from.image = "francium25/openjdk-8-many-large-layers"
+    from.image = 'francium25/openjdk-8-many-large-layers'
+    // manifest list
+    //from.image = 'openjdk@sha256:8ab7b3078b01ba66b937b7fbe0b9eccf60449cc101c42e99aeefaba0e1781155'
+
     to.tags = ['tag1','tag2','tag3','tag4','tag5','tag6','tag7','tag8','tag9',
                'tag10','tag11','tag12']
     extraDirectories.paths = [

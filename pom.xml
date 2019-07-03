@@ -43,7 +43,8 @@
           <configuration>
             <from>
               <image>francium25/openjdk-8-many-large-layers</image>
-              <!--
+              <!-- manifest list
+              <image>openjdk@sha256:8ab7b3078b01ba66b937b7fbe0b9eccf60449cc101c42e99aeefaba0e1781155</image>
               <image>gcr.io/chanseok-playground-new/openjdk-8-many-large-layers</image>
               -->
             </from>
