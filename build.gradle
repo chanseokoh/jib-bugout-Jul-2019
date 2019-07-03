@@ -1,0 +1,55 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+      url 'https://plugins.gradle.org/m2/'
+    }
+  }
+  dependencies {
+    classpath 'com.google.cloud.tools:jib-gradle-plugin:1.3.1-SNAPSHOT'
+    //classpath 'gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.3.0'
+  }
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'com.google.cloud.tools.jib'
+
+  repositories {
+    mavenCentral()
+  }
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+
+  jib {
+    from.image = "francium25/openjdk-8-many-large-layers"
+    to.tags = ['tag1','tag2','tag3','tag4','tag5','tag6','tag7','tag8','tag9',
+               'tag10','tag11','tag12']
+    extraDirectories.paths = [
+        'src/main/jib1','src/main/jib2','src/main/jib3','src/main/jib4',
+		'src/main/jib5','src/main/jib6','src/main/jib7','src/main/jib8',
+        'src/main/jib9','src/main/jib10','src/main/jib11','src/main/jib12',
+        'src/main/jib13']
+  }
+}
+
+project(':foo') {
+  dependencies {
+    implementation 'com.google.guava:guava:23.6-jre'
+  }
+
+  jib.to.image = 'gcr.io/chanseok-playground-new/foo:tag0'
+  jib.containerizingMode = 'packaged'
+  // jib.to.image = 'gcr.io/YOUR-GCP-PROJECT/foo:tag0'
+}
+
+project(':bar') {
+  dependencies {
+    implementation 'com.google.guava:guava:27.0.1-jre'
+  }
+
+  jib.to.image = 'gcr.io/chanseok-playground-new/bar:tag0'
+  // jib.to.image = 'gcr.io/YOUR-GCP-PROJECT/bar:tag0'
+}
